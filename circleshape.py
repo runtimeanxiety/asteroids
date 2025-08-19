@@ -1,7 +1,5 @@
 import pygame
 
-PLAYER_RADIUS = 20
-
 
 # Base class for game objects
 class CircleShape(pygame.sprite.Sprite):
