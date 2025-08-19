@@ -11,7 +11,7 @@ from shot import *
 def main():
     pygame.init()
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-    FPS = pygame.time.Clock()
+    clock = pygame.time.Clock()
     dt = 0
 
     updateable = pygame.sprite.Group()
@@ -32,14 +32,15 @@ def main():
             if event.type == pygame.QUIT:
                 return
 
-        pygame.Surface.fill(screen, "black")
+        screen.fill("black")
+
+        updateable.update(dt)
 
         for sprite in drawable:
             sprite.draw(screen)
 
-        updateable.update(dt)
         pygame.display.flip()
-        dt = FPS.tick(60) / 1000
+        dt = clock.tick(60) / 1000
 
         for asteroid in asteroids:
             if asteroid.collision(player):
