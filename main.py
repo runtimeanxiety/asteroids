@@ -16,6 +16,7 @@ def main():
                 return
         pygame.Surface.fill(screen, "black")
         player.draw(screen)
+        player.update(dt)
         pygame.display.flip()
         dt = FPS.tick(60) / 1000
     print("Starting Asteroids!")
